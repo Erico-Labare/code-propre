@@ -1,17 +1,28 @@
 package ex3;
+
 public class ZooApplication {
 
-	public static void main(String[] args) {
-		Zoo zoo = new Zoo("Thoiry");
-		
-		zoo.addAnimal("Gazelle", "MAMMIFERE", "HERBIVORE");
-		zoo.addAnimal("Zèbre", "MAMIFERE", "HERBIVORE");
-		zoo.addAnimal("Lion", "MAMMIFERE", "HERBIVORE");
-		zoo.addAnimal("Panthère", "MAMMIFERE", "CARNIVORE");
-		zoo.addAnimal("Requin blanc", "POISSON", "HERBIVORE");
-		zoo.addAnimal("Truite dorée", "POISSON", "HERBIVORE");
-		zoo.addAnimal("Boa constrictor", "SERPENT", "CARNIVORE");
-		zoo.addAnimal("Python", "SERPENT", "CARNIVORE");
-	}
+    public static void main(String[] args) {
+        Zoo zoo = new Zoo("Thoiry");
 
+        Animal gazelle = new Animal("Gazelle", "MAMMIFERE", "HERBIVORE");
+        Animal zebre = new Animal("Zèbre", "MAMIFERE", "HERBIVORE");
+        Animal lion = new Animal("Lion", "MAMMIFERE", "HERBIVORE");
+        Animal panthère = new Animal("Panthère", "MAMMIFERE", "CARNIVORE");
+        Animal requinBlanc = new Animal("Requin blanc", "POISSON", "HERBIVORE");
+        Animal truiteDoree = new Animal("Truite dorée", "POISSON", "HERBIVORE");
+        Animal boaConstrictor = new Animal("Boa constrictor", "SERPENT", "CARNIVORE");
+        Animal python = new Animal("Python", "SERPENT", "CARNIVORE");
+
+
+        zoo.addAnimal(gazelle);
+        zoo.addAnimal(zebre);
+        zoo.addAnimal(lion);
+        zoo.addAnimal(panthère);
+        zoo.addAnimal(requinBlanc);
+        zoo.addAnimal(truiteDoree);
+        zoo.addAnimal(boaConstrictor);
+        zoo.addAnimal(python);
+
+    }
 }

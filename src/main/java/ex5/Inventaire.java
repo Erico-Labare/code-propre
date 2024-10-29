@@ -5,32 +5,40 @@ import java.util.List;
 
 public class Inventaire {
 
-	private List<Caisse> caisses;
+    private List<Caisse> caisses;
 
-	public Inventaire() {
-		caisses = new ArrayList<>();
-		caisses.add(new Caisse("Petits objets"));
-		caisses.add(new Caisse("Moyens objets"));
-		caisses.add(new Caisse("Grands objets"));
-	}
+    public Inventaire() {
+        caisses = new ArrayList<>();
+        caisses.add(new Caisse("Petits objets", 0, 5));
+        caisses.add(new Caisse("Moyens objets", 5, 20));
+        caisses.add(new Caisse("Grands objets", 20, 40));
+    }
 
-	public void addItem(Item item) {
+    /**
+     * Boucle de selection des items en utilisant la methode accepte() de la classe Caisse
+     * @param item
+     */
+    public void addItem(Item item) {
+        for (Caisse caisse : caisses) {
+            if (caisse.accepte(item)) {
+                caisse.ajoutItem(item);
+                break;
+            } else {
+                System.out.println("Erreur, objet trop lourd être dans une caisse!");
+                break;
+            }
+        }
+    }
 
-		//TODO Faites évoluer ce code (idée: c'est le caisse qui doit "savoir" si elle peut accepter un objet ou non)
-		if (item.getPoids() < 5) {
-			caisses.get(0).getItems().add(item);
-		}
-		if (item.getPoids() >= 5 && item.getPoids() <= 20) {
-			caisses.get(1).getItems().add(item);
-		}
-		if (item.getPoids() >= 20) {
-			caisses.get(2).getItems().add(item);
-		}
-	}
-
-	public int taille() {
-		
-		//TODO faites évoluer ce code.
-		return caisses.get(0).getItems().size() + caisses.get(1).getItems().size() + caisses.get(2).getItems().size();
-	}
+    /**
+     * Boucle pour garder à jours le nombre d'objet ans une caisse
+     * @return
+     */
+    public int taille() {
+        int total = 0;
+        for (Caisse caisse : caisses) {
+            total += caisse.getItems().size();
+        }
+        return total;
+    }
 }
